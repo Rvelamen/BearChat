@@ -22,6 +22,8 @@ BearChat是一个支持Web端调用MCP服务、多个LLM提供商的Web客户端
 
 ![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image4.png?raw=true)
 
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image6.png?raw=true)
+
 ## 📖 Architecture
 ![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/architecture.png?raw=true)
 
