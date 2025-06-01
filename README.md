@@ -11,16 +11,16 @@ BearChat是一个支持Web端调用MCP服务、多个LLM提供商的Web客户端
 
 
 # 🌠 Screenshot
-![](https://github.com/Rvelamen/BearChat/docs/images/image.png)
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image.png?raw=true)
 
-![](https://github.com/Rvelamen/BearChat/docs/images/image2.png)
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image2.png?raw=true)
 
-![](https://github.com/Rvelamen/BearChat/docs/images/image3.png)
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image3.png?raw=true)
 
-![](https://github.com/Rvelamen/BearChat/docs/images/image4.png)
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/image4.png?raw=true)
 
 ## 📖 Architecture
-![](https://github.com/Rvelamen/BearChat/docs/images/architecture.png)
+![](https://github.com/Rvelamen/BearChat/blob/main/docs/images/architecture.png?raw=true)
 
 # 🌟 Key Features
 
@@ -30,3 +30,13 @@ BearChat是一个支持Web端调用MCP服务、多个LLM提供商的Web客户端
 - 📝 支持工具调用
 - 📊 支持外部接口一键转MCP tool
 - 🎯 提供Chrome 插件
+
+# ⚙️ Start
+```
+pip install -r requirment.txt
+python main.py
+```
+then
+```
+visit http://127.0.0.1:8888
+```
