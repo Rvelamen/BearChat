@@ -1,0 +1,16 @@
+fastapi==0.115.12
+uvicorn==0.34.2
+uv==0.7.6
+requests==2.32.3
+SQLAlchemy==2.0.41
+mcp==1.9.0
+sse-starlette==2.3.5
+starlette==0.46.2
+pydantic==2.10.6
+pydantic-settings==2.9.1
+pydantic_core==2.27.2
+aiohttp==3.11.18
+mcp==1.9.0
+httpcore==1.0.9
+httpx==0.28.1
+httpx-sse==0.4.0

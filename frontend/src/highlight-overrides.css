@@ -1,0 +1,7 @@
+/* react-tool-chatbot/src/highlight-overrides.css */
+
+/* 通过更高的选择器特异性覆盖 github-markdown-css 的样式，确保 highlight.js 样式优先 */
+.markdown-body pre code.hljs {
+  background-color: #1a1b26 !important; /* tokyo-night-dark 的背景色 */
+  color: #f8f8f2 !important;       /* tokyo-night-dark 的文字颜色 */
+} 

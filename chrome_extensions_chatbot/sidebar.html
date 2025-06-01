@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
+  <meta http-equiv="Permissions-Policy" content="unload=(), interest-cohort=()">
+  <title>URL 侧边栏查看器</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    /* 新增输入框样式 */
+    #url-input {
+        width: 80%;
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+        margin: 20px auto;
+        display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <img src="./images/icon128.png" alt="logo" style="width: 100px; height: 100px;">
+    <input type="text" id="url-input" placeholder="请输入网址并按回车（例如：https://example.com）" value="https://www.baidu.com">
+    <div>加载中...</div>
+  </div>
+  <iframe id="deepopen-content-frame" style="display: none;" 
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
+          allow="fullscreen *; autoplay *"></iframe>
+  <script src="sidebar.js"></script>
+  
+</body>
+</html> 

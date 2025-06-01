@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-Bc3sZf6zSkcwsktejF4XbtvNyD6fM",
+  "choices": [
+    {
+      "index": 0,
+      "delta": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_Lknrh8BRkA9LC36wHtbCEuLR",
+            "type": "function",
+            "function": { "name": "mcp_tool", "arguments": "" }
+          }
+        ]
+      },
+      "logprobs": null,
+      "finish_reason": null
+    }
+  ],
+  "created": 1748411075,
+  "model": "gpt-3.5-turbo-0125",
+  "object": "chat.completion.chunk",
+  "system_fingerprint": "fp_0165350fbb"
+}

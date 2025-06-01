@@ -1,0 +1,42 @@
+{
+  "name": "DeepOpenChatBot",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "在侧边栏中显示基于当前URL的内容",
+  "action": {
+    "default_title": "打开侧边栏",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "permissions": [
+    "sidePanel",
+    "tabs",
+    "cookies",
+    "scripting",
+    "activeTab",
+    "storage",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "web_accessible_resources": [],
+  "content_scripts": [
+
+  ]
+}

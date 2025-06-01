@@ -1,0 +1,63 @@
+{
+  "name": "deep-tool-chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.0.18",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "antd": "^5.25.3",
+    "axios": "^1.4.0",
+    "github-markdown-css": "^5.8.1",
+    "heroicons-react": "^1.4.1",
+    "highlight.js": "^11.8.0",
+    "lodash": "^4.17.21",
+    "marked": "^5.1.1",
+    "marked-highlight": "^2.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-sortablejs": "^6.1.4",
+    "react-textarea-autosize": "^8.5.2",
+    "react-toastify": "^11.0.5",
+    "sortablejs": "^1.15.0",
+    "typescript": "^4.9.5",
+    "uuid": "^9.0.0",
+    "zustand": "^4.3.9"
+  },
+  "scripts": {
+    "dev": "vite --mode development",
+    "build": "vite build --mode production",
+    "start": "vite --mode production",
+    "build:env": "vite build --mode development"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/highlight.js": "^10.1.0",
+    "@types/lodash": "^4.14.195",
+    "@types/marked": "^5.0.1",
+    "@types/sortablejs": "^1.15.1",
+    "@types/uuid": "^9.0.2",
+    "@vitejs/plugin-react": "^4.5.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.3.3",
+    "vite": "^5.0.12"
+  }
+}

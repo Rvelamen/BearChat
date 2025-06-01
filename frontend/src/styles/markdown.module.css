@@ -1,0 +1,16 @@
+/* 基础代码块样式 */
+.hljs {
+  padding: 1em;
+  border-radius: 4px;
+}
+
+/* 标题后内容添加前置空格 */
+.hljs-title + * {
+  margin-left: 0.5em;
+}
+
+/* 可选：增强标题样式 */
+.hljs-title {
+  color: #d73a49;
+  font-weight: bold;
+}

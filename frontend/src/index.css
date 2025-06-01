@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .message-bubble {
+    @apply max-w-[85%] break-words rounded-xl shadow-sm transition-all duration-300;
+  }
+
+  .user-message {
+    @apply bg-white rounded-br-sm;
+  }
+
+  .assistant-message {
+    @apply bg-white rounded-bl-sm border border-gray-200;
+  }
+
+  .tool-message {
+    @apply bg-green-50 rounded-bl-sm;
+  }
+
+  .messages-container {
+    @apply h-[calc(100vh-80px)] overflow-y-auto p-6 bg-gray-50 scroll-smooth;
+  }
+
+  .input-area {
+    @apply bg-white border-t border-gray-200 p-3 relative shadow-sm h-20 box-border flex items-center;
+  }
+
+  .message-input .field {
+    @apply rounded-xl bg-gray-100 box-border;
+  }
+
+  .send-button {
+    @apply transition-all duration-200 rounded-xl h-8 w-8;
+  }
+
+  .send-button:hover:not(:disabled) {
+    @apply transform scale-105 bg-primary-100;
+  }
+
+  .send-button:disabled {
+    @apply opacity-60;
+  }
+
+  .tool-results {
+    @apply rounded-lg p-3;
+  }
+
+  .tool-results-card {
+    @apply bg-gray-100 border-l-4 border-green-500;
+  }
+}
+
+code {
+  @apply text-sm;
+}
+
+pre {
+  @apply overflow-auto rounded-md p-4 bg-gray-800 text-white;
+}
+
+pre code {
+  @apply bg-transparent text-white;
+}
