@@ -48,7 +48,7 @@ app.include_router(mcp_client.router, prefix="/mcp-client", tags=["MCP Client"])
 async def root(request: Request):
     """返回主页面"""
     print("root")
-    return FileResponse("frontend/dist/index.html")
+    return FileResponse("static/index.html")
 
 # MCP 路由
 app.mount("/", app=mcp_router.starlette_app)
