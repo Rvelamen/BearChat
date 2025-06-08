@@ -27,9 +27,9 @@
   },
   "scripts": {
     "dev": "vite --mode development",
-    "build": "vite build --mode production",
+    "build": "vite build --mode production --outDir ../static",
     "start": "vite --mode production",
-    "build:env": "vite build --mode development"
+    "build:env": "vite build --mode development --outDir dist-dev"
   },
   "eslintConfig": {
     "extends": [

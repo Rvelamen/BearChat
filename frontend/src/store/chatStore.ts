@@ -124,7 +124,6 @@ export const useChatStore = create<ChatState>()(
           ) {
             return { displayMessages: [] };
           }
-
           const apiMessages =
             state.chatHistory[state.currentChatIndex].messages;
           const newDisplayMessages: Message[][] = [];
@@ -164,6 +163,7 @@ export const useChatStore = create<ChatState>()(
                     tool_response: {
                       tool_call_id: msg.tool_call_id,
                       content: msg.content,
+                      isErrorToolCall: msg.isErrorToolCall
                     },
                     isProcessingTools: false,
                   };

@@ -150,7 +150,6 @@ export const sendMessageToLLM = async (
             fullContent += delta.content;
             handlers.onContent(fullContent);
           }
-
           // Handle tool calls if present
           if (delta.tool_calls && delta.tool_calls.length > 0) {
             for (const toolCallDelta of delta.tool_calls) {
@@ -181,7 +180,7 @@ export const sendMessageToLLM = async (
                   currentToolCalls[index].function.arguments += toolCallDelta.function.arguments;
                 }
               }
-
+              console.log("index: ", index, ", currentToolCalls: ", currentToolCalls[index])
               handlers.onToolCall(index, currentToolCalls[index]);
             }
           }

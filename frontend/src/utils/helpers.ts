@@ -59,7 +59,7 @@ export const safeJsonParse = (json: string) => {
   try {
     return JSON.parse(json);
   } catch (err) {
-    console.error("Error parsing JSON:", err);
+    // console.error("Error parsing JSON:", err);
     return null;
   }
 };

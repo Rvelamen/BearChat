@@ -16,6 +16,7 @@ export interface Message {
   tool_call_id?: string;
   tool_name?: string;
   isProcessingTools?: boolean;
+  isErrorToolCall?: boolean;
   processingChatResponse?: boolean;
   toolResults?: string;
   toolResponses?: any[];

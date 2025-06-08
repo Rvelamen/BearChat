@@ -39,8 +39,6 @@ const ChatContainer: React.FC = () => {
       messagesContainerRef.current.scrollTop =
         messagesContainerRef.current.scrollHeight;
     }
-    // console.log("messages: ", chatHistory[currentChatIndex].messages);
-    // console.log("displayMessages: ", displayMessages);
   }, [displayMessages]);
 
   const handleSendMessage = async () => {
@@ -57,7 +55,7 @@ const ChatContainer: React.FC = () => {
     setIsLoading(true);
 
     // Create placeholder for assistant response
-    const assistantPlaceholder: Message = {
+    let assistantPlaceholder: Message = {
       role: "assistant",
       content: "",
     };
@@ -104,11 +102,11 @@ const ChatContainer: React.FC = () => {
         onToolCall: (index: number, toolCall: Partial<ToolCall>) => {
           // Update assistant message with tool calls
           const currentAssistantMessage = { ...assistantPlaceholder };
-
+          console.log("index: ", index, ", toolCall: ", toolCall);
+          console.log("currentAssistantMessage: ", currentAssistantMessage);
           if (!currentAssistantMessage.tool_calls) {
             currentAssistantMessage.tool_calls = [];
           }
-
           // Create or update tool call
           if (!currentAssistantMessage.tool_calls[index]) {
             currentAssistantMessage.tool_calls[index] = toolCall as ToolCall;
@@ -118,8 +116,8 @@ const ChatContainer: React.FC = () => {
               ...toolCall,
             };
           }
-
           currentAssistantMessage.isProcessingTools = true;
+          assistantPlaceholder = currentAssistantMessage;
           updateMessage(messageIndex, currentAssistantMessage);
         },
         onComplete: () => {
@@ -192,11 +190,21 @@ const ChatContainer: React.FC = () => {
           // Execute tool call
           const toolResult = await executeToolCall(executionUrl, toolCallArgs);
 
-          addMessage({
-            role: "tool",
-            tool_call_id: toolCall.id,
-            content: JSON.stringify(toolResult),
-          });
+          if (toolResult.result.isError) {
+            addMessage({
+              role: "tool",
+              tool_call_id: toolCall.id,
+              content: JSON.stringify(toolResult),
+              isErrorToolCall: true,
+              isProcessingTools: false
+            });
+          } else {
+            addMessage({
+              role: "tool",
+              tool_call_id: toolCall.id,
+              content: JSON.stringify(toolResult),
+            });
+          }
         } catch (toolError) {
           console.error("Tool execution error:", toolError);
 
@@ -207,7 +215,8 @@ const ChatContainer: React.FC = () => {
             role: "tool",
             tool_call_id: toolCall.id,
             content: JSON.stringify({ error: errorMessage }),
-            isProcessingTools: false
+            isProcessingTools: false,
+            isErrorToolCall: true,
           });
         }
       }
@@ -273,7 +282,7 @@ const ChatContainer: React.FC = () => {
       }
 
       // Update the assistant message for streaming
-      const assistantMessage =
+      let assistantMessage =
         useChatStore.getState().chatHistory[currentChatIndex].messages[
           messageIndex
         ];
@@ -288,7 +297,8 @@ const ChatContainer: React.FC = () => {
         onToolCall: (index: number, toolCall: Partial<ToolCall>) => {
           // Update assistant message with tool calls
           const currentAssistantMessage = { ...assistantMessage };
-
+          console.log("index: ", index, ", toolCall: ", toolCall);
+          console.log("currentAssistantMessage: ", currentAssistantMessage);
           if (!currentAssistantMessage.tool_calls) {
             currentAssistantMessage.tool_calls = [];
           }
@@ -304,6 +314,7 @@ const ChatContainer: React.FC = () => {
           }
 
           currentAssistantMessage.isProcessingTools = true;
+          assistantMessage = currentAssistantMessage;
           updateMessage(messageIndex, currentAssistantMessage);
         },
         onComplete: () => {
@@ -341,6 +352,7 @@ const ChatContainer: React.FC = () => {
       }
     } catch (error) {
       console.error("Error continuing with tool results:", error);
+      message.error(`发生错误: ${error.message || "未知错误"}`);
       updateMessage(messageIndex, {
         role: "assistant",
         content: `发生错误: ${error.message || "未知错误"}`,

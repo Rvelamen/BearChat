@@ -73,6 +73,9 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ open, onClose }) => {
     setLoadingTools(true);
     try {
       const toolsData = await fetchTools(localToolsConfig.endpoint_url);
+      if (typeof toolsData !== 'object' || toolsData === null || Array.isArray(toolsData)) {
+        throw new Error('Invalid tools data format: expected JSON object');
+      }
       setAvailableTools(toolsData['tools']);
       setServersStatus(toolsData['servers_status']);
       
@@ -103,8 +106,7 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({ open, onClose }) => {
     } catch (error) {
       setAvailableTools({})
       setServersStatus({})
-      console.error('Failed to fetch tools:', error);
-      notification.error({message: "错误", description: "Fetch Tools Failed"})
+      notification.error({message: "错误", description: "无效工具查询 URL"})
     } finally {
       setLoadingTools(false);
     }
