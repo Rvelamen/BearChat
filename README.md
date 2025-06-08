@@ -5,9 +5,9 @@
 </h1>
 
 
-# 🐻 Bear Char
+# 🐼 Panda Char
 
-BearChat是一个支持Web端调用MCP服务、多个LLM提供商的Web客户端。
+PandaChat是一个支持Web端调用MCP服务、多个LLM提供商的Web客户端。
 
 
 # 🥇 Show

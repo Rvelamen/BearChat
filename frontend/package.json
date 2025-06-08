@@ -1,6 +1,6 @@
 {
-  "name": "deep-tool-chatbot",
-  "version": "0.1.0",
+  "name": "panda-chat",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.4",
