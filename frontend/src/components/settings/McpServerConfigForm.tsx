@@ -31,7 +31,7 @@ const McpServerConfigForm: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("http://localhost:8888/api/mcp-servers");
+      const res = await fetch("/api/mcp-servers");
       const data = await res.json();
       setServers(data);
     } catch (err: any) {
@@ -60,14 +60,14 @@ const McpServerConfigForm: React.FC = () => {
 
     try {
       if (editingServer) {
-        await fetch(`http://localhost:8888/api/mcp-servers/${editingServer.id}`, {
+        await fetch(`/api/mcp-servers/${editingServer.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
         setEditingServer(null);
       } else {
-        await fetch("http://localhost:8888/api/mcp-servers", {
+        await fetch("/api/mcp-servers", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
@@ -83,7 +83,7 @@ const McpServerConfigForm: React.FC = () => {
 
   const handleDeleteServer = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:8888/api/mcp-servers/${id}`, {
+      const res = await fetch(`/api/mcp-servers/${id}`, {
         method: "DELETE",
       });
       fetchServers();
@@ -101,7 +101,7 @@ const McpServerConfigForm: React.FC = () => {
   const handleJsonFinish = async (values: any) => {
     try {
       const payload = JSON.parse(values.jsonData);
-      await fetch("http://localhost:8888/api/mcp-servers/json", {
+      await fetch("/api/mcp-servers/json", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)

@@ -29,7 +29,7 @@ const DeepOpenToolConfigForm: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("http://localhost:8888/api/deep-open-tools");
+      const res = await fetch("/api/deep-open-tools");
       if (!res.ok) throw new Error("Failed to fetch tools");
       const data = await res.json();
       setTools(data);
@@ -64,7 +64,7 @@ const DeepOpenToolConfigForm: React.FC = () => {
     try {
       if (editingTool) {
         const res = await fetch(
-          `http://localhost:8888/api/deep-open-tools/${editingTool.id}`,
+          `/api/deep-open-tools/${editingTool.id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -75,7 +75,7 @@ const DeepOpenToolConfigForm: React.FC = () => {
         message.success("更新成功");
         setEditingTool(null);
       } else {
-        const res = await fetch("http://localhost:8888/api/deep-open-tools", {
+        const res = await fetch("/api/deep-open-tools", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -95,7 +95,7 @@ const DeepOpenToolConfigForm: React.FC = () => {
   const handleDeleteTool = async (id: string) => {
     try {
       const res = await fetch(
-        `http://localhost:8888/api/deep-open-tools/${id}`,
+        `/api/deep-open-tools/${id}`,
         {
           method: "DELETE",
         }
